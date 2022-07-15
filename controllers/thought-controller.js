@@ -1,4 +1,5 @@
-import { User, Thought } from '../models/index.js';
+import User from '../models/User.js';
+import Thought from '../models/Thought.js';
 
 export default {
     async getAllThoughts(req, res) {

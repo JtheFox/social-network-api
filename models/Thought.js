@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
+const { Schema, model } = mongoose;
 import moment from 'moment';
 
 const Thought = model('Thought', new Schema({
