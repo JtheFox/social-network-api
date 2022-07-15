@@ -29,9 +29,29 @@ const thoughtController = {
             res.status(500).json(err);
         }
     },
-    async updateThought({params, body}, res) {
-
+    async updateThought({ params, body }, res) {
+        try {
+            await Thought.updateOne({ _id: params.thoughtId }, body, { new: true, runValidators: true });
+            const thought = await Thought.findOne({ _id: params.thoughtId });
+            !thought ? res.status(404).json({ message: 'No thought with that ID' }) : res.json(thought);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    },
+    async deleteThought({ params }, res) {
+        try {
+            const thought = await Thought.findOneAndDelete({ _id: params.thoughtId });
+            if (!thought) res.status(404).json({ message: 'No thought with that ID' });
+            else {
+                const user = await User.findOneAndUpdate({ thoughts: params.thoughtId }, { $pull: { thoughts: params.thoughtId } }, { new: true });
+                res.json(user);
+            }
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
     }
- }
+}
 
 export default thoughtController;
