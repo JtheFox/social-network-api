@@ -42,7 +42,8 @@ const ThoughtSchema = new Schema({
     },
     reactions: [ReactionSchema]
 }, {
-    toJSON: { virtuals: true }
+    toJSON: { virtuals: true },
+    id: false
 });
 ThoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
 

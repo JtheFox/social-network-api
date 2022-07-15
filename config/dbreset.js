@@ -1,8 +1,8 @@
-const db = require('./config/connection.js');
+const db = require('./connection');
 const { User, Thought } = require('../models');
 
 console.time('Clearing the database');
-connection.once('open', async () => {
+db.once('open', async () => {
     await User.deleteMany();
     await Thought.deleteMany();
     console.timeEnd('Database cleared');
