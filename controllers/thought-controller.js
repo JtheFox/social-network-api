@@ -44,8 +44,8 @@ module.exports = {
             const thought = await Thought.findOneAndDelete({ _id: params.thoughtId });
             if (!thought) res.status(404).json({ message: 'No thought with that ID' });
             else {
-                const user = await User.findOneAndUpdate({ thoughts: params.thoughtId }, { $pull: { thoughts: params.thoughtId } }, { new: true });
-                res.json(user);
+                await User.updateOne({ thoughts: params.thoughtId }, { $pull: { thoughts: params.thoughtId } }, { new: true });
+                res.json({ message: 'Thought deleted successfully' });
             }
         } catch (err) {
             console.log(err);
@@ -64,9 +64,9 @@ module.exports = {
     },
     async removeReaction({ params }, res) {
         try {
+            //TODO: fix reactions not actually being deleted
             await Thought.updateOne({ _id: params.thoughtId }, { $pull: { reactions: { reactionId: params.reactionId } }, new: true });
-            const thought = await Thought.findOne({ _id: params.thoughtId });
-            !thought ? res.status(404).json({ message: 'No thought with that ID' }) : res.json(thought);
+            res.json({ message: 'Reaction removed successfully' });
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
