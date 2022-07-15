@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as thoughts from '../../controllers/thought-controller.js';
+import Thoughts from '../../controllers/thought-controller.js';
 
 const router = Router();
 
