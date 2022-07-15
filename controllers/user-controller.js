@@ -10,7 +10,7 @@ const userController = {
             res.status(500).json(err);
         }
     },
-    async getSingleUser({ params }, res) {
+    async getOneUser({ params }, res) {
         try {
             const user = await User.findOne({ _id: params.userId }).populate({ path: 'thoughts' }).populate({ path: 'friends' });
             !user ? res.status(404).json({ message: 'No user with that ID' }) : res.json(user);
