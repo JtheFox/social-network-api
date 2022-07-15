@@ -1,7 +1,6 @@
-import User from '../models/User.js';
-import Thought from '../models/Thought.js';
+const { User, Thought } = require('../models');
 
-export default {
+module.exports = {
     async getAllUsers(req, res) {
         try {
             const users = await User.find().populate({ path: 'thoughts' }).populate({ path: 'friends' });

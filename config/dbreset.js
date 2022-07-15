@@ -1,6 +1,5 @@
-import connection from './connection.js';
-import User from '../models/User.js';
-import Thought from '../models/Thought.js';
+const db = require('./config/connection.js');
+const { User, Thought } = require('../models');
 
 console.time('Clearing the database');
 connection.once('open', async () => {

@@ -1,7 +1,5 @@
-import { Router } from 'express';
-import Users from '../../controllers/user-controller.js';
-
-const router = Router();
+const router = require('express').Router();
+const Users = require('../../controllers/user-controller.js');
 
 router.route('/')
     .get(Users.getAllUsers)
@@ -16,4 +14,4 @@ router.route('/:userId/friends/:friendId')
     .post(Users.addToFriends)
     .delete(Users.removeFromFriends);
 
-export default router;
+module.exports = router;
