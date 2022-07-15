@@ -30,16 +30,17 @@ const userController = {
     },
     async updateUser({ params, body }, res) {
         try {
-            const user = await User.findOneAndUpdate({ _id: params.userId }, body, { new: true, runValidators: true });
+            await User.updateOne({ _id: params.userId }, body, { new: true, runValidators: true });
+            const user = await User.findOne({ _id: params.userId });
             !user ? res.status(404).json({ message: 'No user with that ID' }) : res.json(user);
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
         }
     },
-    async deleteUser({ params, body }, res) {
+    async deleteUser({ params }, res) {
         try {
-            const user = await User.deleteOne({ _id: params.userId });
+            const user = await User.findOneAndDelete({ _id: params.userId });
             if (!user) res.status(404).json({ message: 'No user with that ID' });
             else {
                 await User.updateMany({ _id: { $in: user.friends } }, { $pull: { friends: params.userId } });
@@ -53,7 +54,8 @@ const userController = {
     },
     async addToFriends({ params }, res) {
         try {
-            const user = await User.updateOne({ _id: params.userId }, { $push: { friends: params.friendId } }, { new: true });
+            await User.updateOne({ _id: params.userId }, { $push: { friends: params.friendId } }, { new: true });
+            const user = await User.findOne({ _id: params.userId });
             !user ? res.status(404).json({ message: 'No user with that ID' }) : res.json(user);
         } catch (err) {
             console.log(err);
@@ -62,7 +64,8 @@ const userController = {
     },
     async removeFromFriends({ params }, res) {
         try {
-            const user = await User.updateOne({ _id: params.userId }, { $pull: { friends: params.friendId } }, { new: true });
+            await User.updateOne({ _id: params.userId }, { $pull: { friends: params.friendId } }, { new: true });
+            const user = await User.findOne({ _id: params.userId });
             !user ? res.status(404).json({ message: 'No user with that ID' }) : res.json(user);
         } catch (err) {
             console.log(err);
