@@ -1,6 +1,6 @@
 import { User, Thought } from '../models/index.js';
 
-const userController = {
+export default {
     async getAllUsers(req, res) {
         try {
             const users = await User.find().populate({ path: 'thoughts' }).populate({ path: 'friends' });
@@ -73,5 +73,3 @@ const userController = {
         }
     }
 }
-
-export default userController;
