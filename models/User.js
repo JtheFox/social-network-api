@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
-const User = model('User', new Schema({
+const UserSchema = new Schema({
     username: {
         type: String,
         unique: true,
@@ -24,6 +24,8 @@ const User = model('User', new Schema({
     }]
 }, {
     toJSON: { virtuals: true }
-}).virtual('friendCount').get(() => this.friends.length));
+});
+UserSchema.virtual('friendCount').get(() => this.friends.length);
 
+const User = model('User', UserSchema);
 export default User;
