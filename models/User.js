@@ -25,4 +25,4 @@ const User = model('User', new Schema({
     toJSON: { virtuals: true }
 }).virtual('friendCount').get(() => this.friends.length));
 
-export default { User };
+export default User;

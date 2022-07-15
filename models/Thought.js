@@ -43,4 +43,4 @@ const Thought = model('Thought', new Schema({
     toJSON: { virtuals: true }
 }).virtual('reactionCount').get(() => this.reactions.length));
 
-export default { Thought };
+export default Thought;
