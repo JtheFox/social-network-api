@@ -20,7 +20,7 @@ This is a NodeJS REST API that uses a NoSQL database. Through the API:
 ## Installation
 - Make sure you have [NodeJS](https://nodejs.org/en/download/) installed
 - Clone the project to your machine
--  Navigate to the project folder in your terminal, using MySQL shell run
+-  Navigate to the project folder in your terminal then run
 ```bash
 npm i
 npm start
