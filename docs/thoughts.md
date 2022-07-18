@@ -77,14 +77,14 @@
 
 ```json
 {
-		"_id": "62d1bc5d5b56c5b932bf4acd",
-		"thoughtText": "Do you think there's more legs or eyes in the world?",
-		"username": "fullestHouse",
-		"createdAt": "2022-07-15T19:13:33.709Z",
-		"reactions": [],
-		"__v": 0,
-		"reactionCount": 1
-	}
+    "_id": "62d1bc5d5b56c5b932bf4acd",
+    "thoughtText": "Do you think there's more legs or eyes in the world?",
+    "username": "fullestHouse",
+    "createdAt": "2022-07-15T19:13:33.709Z",
+    "reactions": [],
+    "__v": 0,
+    "reactionCount": 1
+}
 ```
 
 
