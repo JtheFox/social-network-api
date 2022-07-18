@@ -1,8 +1,8 @@
 # Social Network API
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen?style=flat-square&logo=mongoDB)  ![Express](https://img.shields.io/badge/npm%20package-express-red?style=flat-square&logo=npm) ![Mongoose](https://img.shields.io/badge/npm%20package-mongoose-red?style=flat-square&logo=npm) ![Moment](https://img.shields.io/badge/npm%20package-moment-red?style=flat-square&logo=npm)
-<h2><a href="">Docs</a></h2>
+<h2><a href="/docs">Docs</a></h2>
 
- ## Table of Contents:  
+## Table of Contents:  
 1. [Description](#Description)  
 2. [Demonstration](#Walkthrough-Videos)  
 4. [Installation](#Installation)  
