@@ -15,7 +15,7 @@ This is a NodeJS REST API that uses a NoSQL database. Through the API:
 - Users can add/remove reactions to users' thoughts
 
 ## Demonstration
-[![Video demonstrating API usage with Insomnia](./assets/api-demonstration-thumbnail.png)]()
+[![Video demonstrating API usage with Insomnia](./assets/api-demonstration-thumbnail.png)](https://streamable.com/tz6mzg)
 
 ## Installation
 - Make sure you have [NodeJS](https://nodejs.org/en/download/) installed
