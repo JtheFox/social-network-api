@@ -64,8 +64,7 @@ module.exports = {
     },
     async removeReaction({ params }, res) {
         try {
-            //TODO: fix reactions not actually being deleted
-            await Thought.updateOne({ _id: params.thoughtId }, { $pull: { reactions: { reactionId: params.reactionId } }, new: true });
+            await Thought.updateOne({ _id: params.thoughtId }, { $pull: { reactions: { _id: params.reactionId } }, new: true });
             res.json({ message: 'Reaction removed successfully' });
         } catch (err) {
             console.log(err);
