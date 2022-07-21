@@ -5,7 +5,7 @@
 ## Table of Contents:  
 1. [Description](#Description)  
 2. [Demonstration](#Walkthrough-Videos)  
-4. [Installation](#Installation)  
+3. [Installation](#Installation)  
 
 ## Description
 This is a NodeJS REST API that uses a NoSQL database. Through the API:
